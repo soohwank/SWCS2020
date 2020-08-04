@@ -625,4 +625,5 @@ class: inverse, center, middle
 
 # Thanks!
 
-https://github.com/soohwank/SWCS2020/
+For slides with videos, visit 
+https://soohwank.github.io/SWCS2020/
