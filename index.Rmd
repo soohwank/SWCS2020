@@ -456,7 +456,7 @@ class: inverse, center, middle
 ---
 # Intersection Detection
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/KPLTA4S_3Yo?start=26&end=88&mute=1&autoplay=0&loop=1&playlist=KPLTA4S_3Yo&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/KPLTA4S_3Yo?start=26&end=88&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - Intersection Detection<sup>[1]</sup>]
 
 .vspace-xx-large[.center[.x-large[Where to stop and exit?]]]
@@ -625,3 +625,4 @@ class: inverse, center, middle
 
 # Thanks!
 
+https://github.com/soohwank/SWCS2020/
