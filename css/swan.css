@@ -1,0 +1,250 @@
+/******************
+ * Slide scrolling
+ * (non-functional)
+ * not sure if it is a good idea anyway
+slides > slide {
+  overflow: scroll;
+ padding: 5px 40px;
+}
+.scrollable-slide .remark-slide {
+  height: 400px;
+  overflow: scroll !important;
+}
+ ******************/
+
+.scroll-box-8 {
+  height:8em;
+  overflow-y: scroll;
+}
+.scroll-box-10 {
+  height:10em;
+  overflow-y: scroll;
+}
+.scroll-box-12 {
+  height:12em;
+  overflow-y: scroll;
+}
+.scroll-box-14 {
+  height:14em;
+  overflow-y: scroll;
+}
+.scroll-box-16 {
+  height:16em;
+  overflow-y: scroll;
+}
+.scroll-box-18 {
+  height:18em;
+  overflow-y: scroll;
+}
+.scroll-box-20 {
+  height:20em;
+  overflow-y: scroll;
+}
+.scroll-box-22 {
+  height:22em;
+  overflow-y: scroll;
+}
+.scroll-box-24 {
+  height:24em;
+  overflow-y: scroll;
+}
+.scroll-box-26 {
+  height:26em;
+  overflow-y: scroll;
+}
+.scroll-box-28 {
+  height:28em;
+  overflow-y: scroll;
+}
+.scroll-box-30 {
+  height:30em;
+  overflow-y: scroll;
+}
+.scroll-output {
+  height: 90%;
+  overflow-y: scroll;
+}
+
+/******************
+ * Coloured content boxes
+ ****************/
+.content-box { 
+    box-sizing: border-box;
+    background-color: #e2e2e2;
+}
+.content-box-blue,
+.content-box-gray,
+.content-box-grey,
+.content-box-army,
+.content-box-green,
+.content-box-purple,
+.content-box-red,
+.content-box-yellow {
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin: 0 0 15px;
+  overflow: hidden;
+  padding: 0px 20px 0px 20px;
+  width: 100%;
+}
+.content-box-blue { background-color: #F0F8FF; }
+.content-box-gray { background-color: #e2e2e2; }
+.content-box-grey {	background-color: #F5F5F5; }
+.content-box-army {	background-color: #737a36; }
+.content-box-green { background-color: #d9edc2; }
+.content-box-purple { background-color: #e2e2f9; }
+.content-box-red { background-color: #ffcccc; }
+.content-box-yellow { background-color: #fef5c4; }
+.content-box-blue .remark-inline-code,
+.content-box-blue .remark-inline-code,
+.content-box-gray .remark-inline-code,
+.content-box-grey .remark-inline-code,
+.content-box-army .remark-inline-code,
+.content-box-green .remark-inline-code,
+.content-box-purple .remark-inline-code,
+.content-box-red .remark-inline-code,
+.content-box-yellow .remark-inline-code { 
+  background: none;
+}
+
+.full-width {
+    display: flex;
+    width: 100%;
+    flex: 1 1 auto;
+}
+/*
+.block-title {
+	background-color: #F0F8FF;
+	box-sizing: content-box;
+	box-sizing: border-box;
+	border-radius: 15px;
+	margin: 0 0 15px;
+	overflow: hidden;
+	padding: 0px 20px 0px 20px;
+	width: 100%
+}
+*/
+
+/* Text Colors */
+/* https://www.rapidtables.com/web/css/css-color.html */
+/* javascript? */
+
+.red       { color: red;       }
+.green     { color: green;     }
+.blue      { color: blue;      }
+
+.yellow    { color: yellow;    }
+.cyan      { color: cyan;      }
+.magenta   { color: magenta;   }
+
+.orange    { color: orange;    }
+.pink      { color: pink;      }
+.gold      { color: gold;      }
+
+.black     { color: black;     }
+.white     { color: white;     }
+
+.gray      { color: gray;      }
+.lightgrey { color: lightgray; }
+
+
+/* Background Colors */
+
+/* Link Color */
+a { color: gray; }
+.source { color: gray; 
+          font-size: small;
+          text-align: right;
+		  vertical-align: bottom;
+}
+.test { font-size: small; 
+        text-align: center;
+}
+
+/* Font Size */
+.xx-large { font-size: xx-large; }
+.x-large  { font-size: x-large;  }
+.large    { font-size: large;    }
+.medium   { font-size: medium;   }
+.small    { font-size: small;    }
+.x-small  { font-size: x-small;  }
+.xx-small { font-size: xx-small; }
+
+/* Line Height */
+
+/* Columns */
+.pull-left-30 {
+  float: left;
+  width: 30%;
+}
+.pull-left-40 {
+  float: left;
+  width: 40%;
+}
+.pull-left-50 {
+  float: left;
+  width: 50%;
+}
+.pull-left-60 {
+  float: left;
+  width: 60%;
+}
+.pull-left-70 {
+  float: left;
+  width: 70%;
+}
+.pull-right-30 {
+  float: right;
+  width: 30%;
+}
+.pull-right-40 {
+  float: right;
+  width: 40%;
+}
+.pull-right-50 {
+  float: right;
+  width: 50%;
+}
+.pull-right-60 {
+  float: right;
+  width: 60%;
+}
+.pull-right-70 {
+  float: right;
+  width: 70%;
+}
+
+.vspace-xx-large {
+  line-height: 1.6em;
+  vertical-align: bottom;
+}
+.vspace-x-large {
+  line-height: 1.4em;
+  vertical-align: bottom;
+}
+.vspace-large {
+  line-height: 1.2em;
+  vertical-align: bottom;
+}
+.vspace-medium {
+  line-height: 1.0em;
+  vertical-align: bottom;
+}
+.vspace-small {
+  line-height: 0.8em;
+  vertical-align: bottom;
+}
+.vspace-x-small {
+  line-height: 0.6em;
+  vertical-align: bottom;
+}
+.vspace-xx-small {
+  line-height: 0.4em;
+  vertical-align: bottom;
+}
+
+/* https://github.com/jvcasillas/ru_xaringan */
+/* https://www.w3schools.com/css/css_icons.asp */
+/* https://www.rostrum.blog/2019/05/24/xaringan-template/ */
+/* https://github.com/gadenbuie/xaringanExtra */
+/* https://emitanaka.org/ninja-theme */

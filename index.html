@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Perception for Autonomous Driving</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Soohwan Kim" />
+    <script src="libs/header-attrs-2.3/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/ninjutsu.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css\swan.css" type="text/css" />
+    <link rel="stylesheet" href="css\swan-font.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Perception for Autonomous Driving
+### Soohwan Kim
+### SWCS2020
+
+---
+
+class: inverse, center, middle
+
+# Perception? Autonomous Driving?
+
+---
+# Autonmous Systems
+
+.pull-left[
+.center[&lt;img src="figs/boston-dynamics-spot.png" width="70%"/&gt;]
+.center[Boston Dynamics - Spot]
+
+&lt;br/&gt;
+.center[&lt;img src="figs/waymo.png" width="100%"/&gt;]
+.center[Waymo Self-Driving Car]
+]
+
+.pull-right[
+.center[&lt;img src="figs/dji-phantom4.png" width="100%"/&gt;]
+.center[DJI - Phantom 4]
+
+&lt;br/&gt;
+.center[&lt;img src="figs/naverlabs-m1.png" width="37%"/&gt;]
+.center[Naverlabs - M1]
+]
+
+---
+# Three Blocks of Autonomous Systems
+
+&lt;br/&gt;
+
+![](figs/three-blocks.png)
+---
+# Three Blocks of Autonmous Systems
+
+```c++
+void main()
+{
+   // Initialization
+   setup();
+   
+   // Infinite loop
+   while(true)
+   {
+      // Step 1: perception
+*     sense();
+      
+      // Step 2: planning
+*     think();
+      
+      // Step 3: control
+*     act();
+   }
+   
+   // Finalization
+   shutdown();
+}
+```
+---
+class: inverse, center, middle
+
+# Sensors!
+
+&lt;!--
+# Sensors for Self-Driving Cars
+
+.center[&lt;img src="figs/autonomous-vehicle-sensors-components-expert-article-diagram.png" width="90%" /&gt;]
+
+.footnote[.small[https://www.robsonforensic.com/articles/autonomous-vehicles-sensors-expert/]]
+--&gt;
+
+---
+# Sensors for Self-Driving Cars
+
+.center[&lt;img src="figs/sensors.png" width="75%" /&gt;]
+
+.footnote[.small[[Autonomous Vehicles, Factsheets - Center for Sustainable Systems, University of Michigan ](http://css.umich.edu/sites/default/files/Autonomous%20Vehicles_CSS16-18_e2019.pdf)]]
+
+---
+# Sensors for Self-Driving Cars
+
+.center[&lt;img src="figs/park-assist-lg.jpg" width="100%" /&gt;]
+
+.footnote[
+.small[
+https://www.ansys.com/about-ansys/advantage-magazine/volume-xii-issue-1-2018/autonomous-vehicle-radar
+]
+]
+
+---
+# LIDAR (LIght Detection And Ranging)
+
+.pull-left[
+.center[&lt;img src="figs/Velodyne_AlphaPuck.png" width="59%"/&gt;]
+.center[Velodyne Lidar - Alpha Prime&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.xx-small[&lt;br/&gt;]
+Pros
+- Generates point clouds
+- Accurate point positions
+- Works well even at night
+]
+.pull-right[
+.center[&lt;iframe width="560" height="200" src="https://www.youtube.com/embed/tZ8WbSNsNaU?start=5&amp;end=137&amp;mute=1&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[Velodyne Lidar - Alpha Prime&lt;sup&gt;[2]&lt;/sup&gt;]
+
+.xx-small[&lt;br/&gt;]
+Cons
+- Very expensive
+- Sparse points
+- Issues in fog, rain and snow
+]
+
+.footnote[
+.small[
+1. https://velodynelidar.com/products/alpha-prime/  
+2. https://www.youtube.com/watch?v=tZ8WbSNsNaU
+]
+]
+
+---
+# RADAR (RAdio Detection And Ranging)
+
+.pull-left[
+.center[&lt;img src="figs/delphi_esr_v2_300.png" width="59%"/&gt;]
+.center[Aptive - ESR 2.5&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.xx-small[&lt;br/&gt;]
+Pros
+- Long operating distance
+- Effective for relative speeds
+- Works in fog, rain, snow, night
+]
+.pull-right[
+.center[&lt;iframe width="560" height="200" src="https://www.youtube.com/embed/6oL19umG-Ao?start=20&amp;end=70&amp;mute=1&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[Texas Insrument - AWR1642&lt;sup&gt;[2]&lt;/sup&gt;]
+
+.xx-small[&lt;br/&gt;]
+Cons
+- Low resolution
+- Very sparse
+- Noisy and less accurate
+]
+
+.footnote[
+.small[
+1. https://autonomoustuff.com/product/aptiv-esr-2-5-24v/
+2. https://www.youtube.com/watch?v=ziQjbVXcSts
+]
+]
+
+---
+# Camera
+
+.pull-left[
+.center[&lt;img src="figs/SVC210_web.png" width="100%"/&gt;]
+.center[Continental - SVC210&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.xx-small[&lt;br/&gt;]
+Pros
+- Rich texture information
+- Very affordable
+]
+.pull-right[
+.center[&lt;iframe width="560" height="200" src="https://www.youtube.com/embed/KXpZ6B1YB_k?start=5&amp;end=30&amp;mute=1&amp;autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[KITTI Vision Dataset&lt;sup&gt;[2]&lt;/sup&gt;]
+
+.xx-small[&lt;br/&gt;]
+Cons
+- No depth information
+- Issues in sun glare and shadow
+]
+
+.footnote[
+.small[
+1. https://www.continental-automotive.com/en-gl/2-Wheeler/Safe-Mobility/Sensors/Surround-View-Camera-SVC210
+2. https://www.youtube.com/watch?v=KXpZ6B1YB_k
+]
+]
+
+---
+# LIDAR vs. Camera
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/y3Q7v5a0lnI?start=8&amp;end=560&amp;mute=1&amp;autoplay=1&amp;loop=1&amp;playlist=B8R148hFxPw&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[Velodyne Lidar - Lidar vs Camera Comparison&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.vspace-xx-large[.center[.x-large[Google vs. Tesla?]]]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=y3Q7v5a0lnI
+]
+]
+
+---
+# LIDAR vs. Camera
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/B8R148hFxPw?start=38&amp;end=66&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[Waymo Self-Driving Car&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.vspace-xx-large[.center[.x-large[We Need Sensor Fusion!]]]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=B8R148hFxPw
+]
+]
+
+---
+# Camera-RADAR Sensor Fusion
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/cMlGyIJH5L8?start=13&amp;end=89&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA (6 Cameras and 8 RADARs) &lt;sup&gt;[1,2]&lt;/sup&gt;]
+
+.vspace-xx-large[.center[.x-large[Detection + Position, Velocity and Acceleration]]]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=cMlGyIJH5L8
+2. https://developer.nvidia.com/blog/autonomous-vehicle-radar-perception-in-360-degrees/
+]
+]
+
+---
+# LIDAR-Camera Sensor Fusion
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/XzLE-RW9wv8?mute=1&amp;autoplay=1&amp;loop=1&amp;playlist=XzLE-RW9wv8&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[LIDAR-CAMERA Fusion &lt;sup&gt;[1]&lt;/sup&gt;]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=XzLE-RW9wv8
+]
+]
+
+
+---
+# GNSS and IMU
+
+.pull-left[
+#### Global Navigation Satellite  System
+
+.center[&lt;img src="figs/702-GG-1680x885.jpg" width="80%"/&gt;]
+.center[NovAtel - GPS-704-X&lt;sup&gt;[1]&lt;/sup&gt;]
+
+&lt;br/&gt;
+[+] Global position, all weather
+
+[-] Issues in downtown
+]
+
+.pull-right[
+#### Inertial Measurement Unit
+.center[&lt;img src="figs/mech-spec_d1000_mti-g.png" width="50%"/&gt;]
+.center[Xsens - MTi-100&lt;sup&gt;[1]&lt;/sup&gt;]
+
+
+&lt;br/&gt;
+[+] Egomotion, cheap, all weather
+
+[-] Very noisy, bias
+]
+
+.footnote[
+.small[
+1. https://novatel.com/products/antennas/high-performance-gnss-gps-antennas/gps-704-x
+2. https://www.xsens.com/products/mti-100-series
+]
+]
+
+---
+# Other Sensors
+
+## - Odometry sensors
+## - Ultrasonic sensors
+## - Thermal cameras
+## - Solid-State LIDAR
+
+---
+class: inverse, center, middle
+
+# Perception for Autonomous Driving!
+
+---
+# Perception for Autonomous Driving
+
+## 1. Localization
+## 2. Detection
+## 3. Tracking
+## 4. Estimation
+## 5. Prediction
+
+---
+class: inverse, center, middle
+
+# 1. Localization
+
+---
+# HD Maps
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ga5fW-QSXp0?start=58&amp;end=150&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[TomTom - HD Maps&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- SLAM using sesor fusion (LIDAR, camera, RADAR, GNSS, IMU, odometry)
+- Lanes, center lines, road boundaries, intersections 
+- Traffic signs, traffic lights, poles, road markings
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=ga5fW-QSXp0
+]
+]
+
+---
+# GNSS+INS vs. HD-map Based Localization
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/PIf5fh2-3z4?mute=1&amp;autoplay=1&amp;loop=1&amp;playlist=PIf5fh2-3z4&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[Naver Labs - HD Map Based Localization&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=PIf5fh2-3z4
+2. https://www.youtube.com/watch?v=s0GK2EBpGZ8
+]
+]
+
+---
+# Localization using Cameras
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/jcKnb65wpWA?start=13&amp;end=86&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA using cameras&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- .green[Ego lane lines], .magenta[center of ego lane], .blue[road boundaries]
+- .gold[Intersection lines, poles, traffic signs, traffic lights]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=jcKnb65wpWA
+2. https://www.youtube.com/watch?v=5IydCAYB5N0&amp;t=20s
+]
+]
+
+---
+# Localization using Sensor Fusion
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/jcKnb65wpWA?start=87&amp;end=115&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - Localization using camera, lidar, and radar layers&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=jcKnb65wpWA
+]
+]
+
+---
+class: inverse, center, middle
+
+# 2. Detection
+
+---
+# Lane Detection
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/IzvlqCEYjg4?start=15&amp;end=79&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - LaneNet&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- .red[Solid lane lines], .blue[dashed lane lines]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=IzvlqCEYjg4
+]
+]
+
+---
+# Object Detection
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Vu8gmFhiGko?&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[Waymo Self-driving Car at a Crowded School Crossing&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- .magenta[Cars (back)], .green[cars (front)]
+- .gold[Pedestrians]
+- .gray[Traffic signs]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=Vu8gmFhiGko
+]
+]
+
+---
+# Object Detection
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/OopTOjnD3qY?mute=1&amp;autoplay=1&amp;loop=1&amp;playlist=OopTOjnD3qY&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[Waymo Self-driving Car Navigates a Police Controlled Intersection&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- .magenta[Cars]
+- .gold[Pedestrians]
+- .orange[Traffic cones], .red[intersections]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=Vu8gmFhiGko
+]
+]
+
+---
+# Map Feature Detection
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/dl8MI4vZmUY?start=16&amp;end=68&amp;mute=1&amp;autoplay=1&amp;&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - MapNet&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- Lanes: .gray[Road boundaries], .blue[dashed lines], .red[solid lines]
+- Intersections: .orange[Intersections], .magenta[cross-traffic intersections]
+- Others: .gold[Poles], .cyan[road markings]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=dl8MI4vZmUY
+]
+]
+
+---
+# Traffic Sign and Traffic Light Detection
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Uz5mIdRtdeA?start=13&amp;end=80&amp;mute=1&amp;autoplay=1&amp;&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - WaitNet, LightNet, SignNet&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- WaitNet: .gold[intersections]
+- SignNet: .blue[traffic signs]
+- LightNet: .red[red light], .green[green light]
+
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=Uz5mIdRtdeA
+]
+]
+
+---
+# Intersection Detection
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/KPLTA4S_3Yo?start=26&amp;end=88&amp;mute=1&amp;autoplay=1&amp;loop=1&amp;playlist=KPLTA4S_3Yo&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - Intersection Detection&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.vspace-xx-large[.center[.x-large[Where to stop and exit?]]]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=KPLTA4S_3Yo
+]
+]
+
+---
+# Parking Space Detection
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Bzfmc-PDwtM?start=10&amp;end=70&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - ParkNet&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.vspace-xx-large[.center[.x-large[Where to park? &amp;nbsp; How to enter?]]]
+
+- .red[Parking lines], .green[entry lines]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=Bzfmc-PDwtM
+]
+]
+
+---
+class: inverse, center, middle
+
+# 3. Tracking
+
+---
+# Feature Tracking
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/y2X_7KwppoI?start=10&amp;end=69&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - Feature Tracking&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- Tracked features: .blue[features], .cyan[feature track histories]
+- Detected Objects: .green[moving away], .gold[getting closer], .red[urgent]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=y2X_7KwppoI
+]
+]
+
+---
+# Object Tracking
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/aQwqD5cB2ck?start=17&amp;end=71&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA -Surround Camera Object Tracking&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=aQwqD5cB2ck
+]
+]
+
+---
+# Pixel-level Object Detection and Tracking
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/HS1wV9NMLr8?start=16&amp;end=65&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - Pixel-Perfect Perception&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- Detection (top): .blue[Cars], .red[Pedestrians], .green[Drivable space]
+- Tracking (bottom): object id (unique numbers and colors)
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=HS1wV9NMLr8
+]
+]
+
+---
+class: inverse, center, middle
+
+# 4. Estimation
+
+---
+# Depth Estimation from Single Camera
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/ftsUg5VlzIE?start=13&amp;end=47&amp;mute=1&amp;autoplay=1&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - Depth Estimation from Single Camera&lt;sup&gt;[1]&lt;/sup&gt;]
+
+- .green[Cars]
+- .cyan[Pedestrians]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=ftsUg5VlzIE
+]
+]
+
+---
+class: inverse, center, middle
+
+# 5. Prediction
+
+---
+# Car Trajectories
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/yEtH23rKY8Q?start=54&amp;end=174&amp;mute=1&amp;autoplay=1&amp;loop=1&amp;playlist=yEtH23rKY8Q&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[NVIDIA - Predicting moving objects using camera and radar&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=NG_O4RyQqGE
+]
+]
+
+---
+# Pedestrian Trajectories
+
+.center[&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/NG_O4RyQqGE?mute=1&amp;autoplay=1&amp;loop=1&amp;playlist=NG_O4RyQqGE&amp;vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;]
+.center[Waymo Self-driving Car Allowing Cyclists to Pass&lt;sup&gt;[1]&lt;/sup&gt;]
+
+.footnote[
+.small[
+1. https://www.youtube.com/watch?v=NG_O4RyQqGE
+]
+]
+
+---
+class: inverse, center, middle
+
+# Summary
+
+---
+# Perception for Autonomous Driving
+.pull-left-40[
+.xx-large[
+- Three Blocks
+.x-large[
+1. Perception
+2. Planning
+3. Control
+] 
+&lt;br/&gt;
+- Sensors
+.x-large[
+1. LIDAR
+2. RADAR
+3. Camera
+4. GNSS, IMU
+5. Sensor Fusion
+]
+]
+]
+
+.pull-right-60[
+.xx-large[
+- Perception
+.x-large[
+1. Localization: HD Maps
+2. Detection: objects
+3. Tracking: feature/object
+4. Estimation: depth
+5. Prediction: object trajectories
+]
+]
+]
+
+---
+
+class: inverse, center, middle
+
+# Thanks!
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
