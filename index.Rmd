@@ -115,7 +115,7 @@ Pros
 - Works well even at night
 ]
 .pull-right[
-.center[<iframe width="560" height="200" src="https://www.youtube.com/embed/tZ8WbSNsNaU?start=5&end=137&mute=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="200" src="https://www.youtube.com/embed/tZ8WbSNsNaU?start=5&end=137&mute=1&autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[Velodyne Lidar - Alpha Prime<sup>[2]</sup>]
 
 .xx-small[<br/>]
@@ -146,7 +146,7 @@ Pros
 - Works in fog, rain, snow, night
 ]
 .pull-right[
-.center[<iframe width="560" height="200" src="https://www.youtube.com/embed/6oL19umG-Ao?start=20&end=70&mute=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="200" src="https://www.youtube.com/embed/6oL19umG-Ao?start=20&end=70&mute=1&autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[Texas Insrument - AWR1642<sup>[2]</sup>]
 
 .xx-small[<br/>]
@@ -176,7 +176,7 @@ Pros
 - Very affordable
 ]
 .pull-right[
-.center[<iframe width="560" height="200" src="https://www.youtube.com/embed/KXpZ6B1YB_k?start=5&end=30&mute=1&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="200" src="https://www.youtube.com/embed/KXpZ6B1YB_k?start=5&end=30&mute=1&autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[KITTI Vision Dataset<sup>[2]</sup>]
 
 .xx-small[<br/>]
@@ -195,7 +195,7 @@ Cons
 ---
 # LIDAR vs. Camera
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/y3Q7v5a0lnI?start=8&end=560&mute=1&autoplay=1&loop=1&playlist=B8R148hFxPw&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/y3Q7v5a0lnI?start=8&end=560&mute=1&autoplay=0&loop=1&playlist=B8R148hFxPw&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[Velodyne Lidar - Lidar vs Camera Comparison<sup>[1]</sup>]
 
 .vspace-xx-large[.center[.x-large[Google vs. Tesla?]]]
@@ -209,7 +209,7 @@ Cons
 ---
 # LIDAR vs. Camera
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/B8R148hFxPw?start=38&end=66&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/B8R148hFxPw?start=38&end=66&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[Waymo Self-Driving Car<sup>[1]</sup>]
 
 .vspace-xx-large[.center[.x-large[We Need Sensor Fusion!]]]
@@ -223,7 +223,7 @@ Cons
 ---
 # Camera-RADAR Sensor Fusion
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/cMlGyIJH5L8?start=13&end=89&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/cMlGyIJH5L8?start=13&end=89&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA (6 Cameras and 8 RADARs) <sup>[1,2]</sup>]
 
 .vspace-xx-large[.center[.x-large[Detection + Position, Velocity and Acceleration]]]
@@ -238,7 +238,7 @@ Cons
 ---
 # LIDAR-Camera Sensor Fusion
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/XzLE-RW9wv8?mute=1&autoplay=1&loop=1&playlist=XzLE-RW9wv8&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/XzLE-RW9wv8?mute=1&autoplay=0&loop=1&playlist=XzLE-RW9wv8&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[LIDAR-CAMERA Fusion <sup>[1]</sup>]
 
 .footnote[
@@ -285,10 +285,12 @@ Cons
 ---
 # Other Sensors
 
-## - Odometry sensors
-## - Ultrasonic sensors
-## - Thermal cameras
-## - Solid-State LIDAR
+.xx-large[
+- Odometry sensors
+- Ultrasonic sensors
+- Thermal cameras
+- Solid-State LIDAR
+]
 
 ---
 class: inverse, center, middle
@@ -298,12 +300,13 @@ class: inverse, center, middle
 ---
 # Perception for Autonomous Driving
 
-## 1. Localization
-## 2. Detection
-## 3. Tracking
-## 4. Estimation
-## 5. Prediction
-
+.xx-large[
+1. Localization
+2. Detection
+3. Tracking
+4. Estimation
+5. Prediction
+]
 ---
 class: inverse, center, middle
 
@@ -312,7 +315,7 @@ class: inverse, center, middle
 ---
 # HD Maps
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/ga5fW-QSXp0?start=58&end=150&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/ga5fW-QSXp0?start=58&end=150&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[TomTom - HD Maps<sup>[1]</sup>]
 
 - SLAM using sesor fusion (LIDAR, camera, RADAR, GNSS, IMU, odometry)
@@ -328,7 +331,7 @@ class: inverse, center, middle
 ---
 # GNSS+INS vs. HD-map Based Localization
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/PIf5fh2-3z4?mute=1&autoplay=1&loop=1&playlist=PIf5fh2-3z4&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/PIf5fh2-3z4?mute=1&autoplay=0&loop=1&playlist=PIf5fh2-3z4&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[Naver Labs - HD Map Based Localization<sup>[1]</sup>]
 
 .footnote[
@@ -341,7 +344,7 @@ class: inverse, center, middle
 ---
 # Localization using Cameras
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/jcKnb65wpWA?start=13&end=86&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/jcKnb65wpWA?start=13&end=86&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA using cameras<sup>[1]</sup>]
 
 - .green[Ego lane lines], .magenta[center of ego lane], .blue[road boundaries]
@@ -357,7 +360,7 @@ class: inverse, center, middle
 ---
 # Localization using Sensor Fusion
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/jcKnb65wpWA?start=87&end=115&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/jcKnb65wpWA?start=87&end=115&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - Localization using camera, lidar, and radar layers<sup>[1]</sup>]
 
 .footnote[
@@ -374,7 +377,7 @@ class: inverse, center, middle
 ---
 # Lane Detection
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/IzvlqCEYjg4?start=15&end=79&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/IzvlqCEYjg4?start=15&end=79&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - LaneNet<sup>[1]</sup>]
 
 - .red[Solid lane lines], .blue[dashed lane lines]
@@ -388,7 +391,7 @@ class: inverse, center, middle
 ---
 # Object Detection
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/Vu8gmFhiGko?&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/Vu8gmFhiGko?&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[Waymo Self-driving Car at a Crowded School Crossing<sup>[1]</sup>]
 
 - .magenta[Cars (back)], .green[cars (front)]
@@ -404,7 +407,7 @@ class: inverse, center, middle
 ---
 # Object Detection
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/OopTOjnD3qY?mute=1&autoplay=1&loop=1&playlist=OopTOjnD3qY&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/OopTOjnD3qY?mute=1&autoplay=0&loop=1&playlist=OopTOjnD3qY&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[Waymo Self-driving Car Navigates a Police Controlled Intersection<sup>[1]</sup>]
 
 - .magenta[Cars]
@@ -420,7 +423,7 @@ class: inverse, center, middle
 ---
 # Map Feature Detection
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/dl8MI4vZmUY?start=16&end=68&mute=1&autoplay=1&&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/dl8MI4vZmUY?start=16&end=68&mute=1&autoplay=0&&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - MapNet<sup>[1]</sup>]
 
 - Lanes: .gray[Road boundaries], .blue[dashed lines], .red[solid lines]
@@ -436,7 +439,7 @@ class: inverse, center, middle
 ---
 # Traffic Sign and Traffic Light Detection
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/Uz5mIdRtdeA?start=13&end=80&mute=1&autoplay=1&&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/Uz5mIdRtdeA?start=13&end=80&mute=1&autoplay=0&&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - WaitNet, LightNet, SignNet<sup>[1]</sup>]
 
 - WaitNet: .gold[intersections]
@@ -453,7 +456,7 @@ class: inverse, center, middle
 ---
 # Intersection Detection
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/KPLTA4S_3Yo?start=26&end=88&mute=1&autoplay=1&loop=1&playlist=KPLTA4S_3Yo&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/KPLTA4S_3Yo?start=26&end=88&mute=1&autoplay=0&loop=1&playlist=KPLTA4S_3Yo&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - Intersection Detection<sup>[1]</sup>]
 
 .vspace-xx-large[.center[.x-large[Where to stop and exit?]]]
@@ -467,7 +470,7 @@ class: inverse, center, middle
 ---
 # Parking Space Detection
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/Bzfmc-PDwtM?start=10&end=70&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/Bzfmc-PDwtM?start=10&end=70&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - ParkNet<sup>[1]</sup>]
 
 .vspace-xx-large[.center[.x-large[Where to park? &nbsp; How to enter?]]]
@@ -488,7 +491,7 @@ class: inverse, center, middle
 ---
 # Feature Tracking
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/y2X_7KwppoI?start=10&end=69&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/y2X_7KwppoI?start=10&end=69&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - Feature Tracking<sup>[1]</sup>]
 
 - Tracked features: .blue[features], .cyan[feature track histories]
@@ -503,7 +506,7 @@ class: inverse, center, middle
 ---
 # Object Tracking
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/aQwqD5cB2ck?start=17&end=71&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/aQwqD5cB2ck?start=17&end=71&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA -Surround Camera Object Tracking<sup>[1]</sup>]
 
 .footnote[
@@ -515,7 +518,7 @@ class: inverse, center, middle
 ---
 # Pixel-level Object Detection and Tracking
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/HS1wV9NMLr8?start=16&end=65&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/HS1wV9NMLr8?start=16&end=65&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - Pixel-Perfect Perception<sup>[1]</sup>]
 
 - Detection (top): .blue[Cars], .red[Pedestrians], .green[Drivable space]
@@ -535,7 +538,7 @@ class: inverse, center, middle
 ---
 # Depth Estimation from Single Camera
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/ftsUg5VlzIE?start=13&end=47&mute=1&autoplay=1&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/ftsUg5VlzIE?start=13&end=47&mute=1&autoplay=0&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - Depth Estimation from Single Camera<sup>[1]</sup>]
 
 - .green[Cars]
@@ -555,7 +558,7 @@ class: inverse, center, middle
 ---
 # Car Trajectories
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/yEtH23rKY8Q?start=54&end=174&mute=1&autoplay=1&loop=1&playlist=yEtH23rKY8Q&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/yEtH23rKY8Q?start=54&end=174&mute=1&autoplay=0&loop=1&playlist=yEtH23rKY8Q&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[NVIDIA - Predicting moving objects using camera and radar<sup>[1]</sup>]
 
 .footnote[
@@ -567,7 +570,7 @@ class: inverse, center, middle
 ---
 # Pedestrian Trajectories
 
-.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/NG_O4RyQqGE?mute=1&autoplay=1&loop=1&playlist=NG_O4RyQqGE&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
+.center[<iframe width="560" height="315" src="https://www.youtube.com/embed/NG_O4RyQqGE?mute=1&autoplay=0&loop=1&playlist=NG_O4RyQqGE&vq=hd1080" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>]
 .center[Waymo Self-driving Car Allowing Cyclists to Pass<sup>[1]</sup>]
 
 .footnote[
